@@ -35,10 +35,13 @@ body {
   background-size: cover;
   padding: 10rem 0 0;
   max-width: 35ch;
+  border-radius: .5rem;
+  overflow: hidden;
 }
 
 .card-content {
-  padding: 1.5em;
+  --padding: 1.5rem;
+  padding: var(--padding);
   background-image: linear-gradient(
     transparent, 
     hsl(0 0% 0% / 0.3) 20%,
@@ -48,15 +51,35 @@ body {
 
 .card-title {
   position: relative;
+  width: max-content;
+  max-width: 100%;
 }
 
 .card-title::after {
   content: "";
   position: absolute;
   height: 0.25rem;
-  width: 100%;
+  width: calc(100% + var(--padding));
   right: 0;
   bottom: 0;
+  left: calc(var(--padding) * -1);
   background: var(--clr-accent-400);
+}
+
+.card-btn {
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  color: var(--clr-neutral-900);
+  background: var(--clr-accent-400);
+  padding: .5em 1.25em;
+  font-weight: 700;
+  border-radius: .25rem;
+}
+
+.card-btn:hover, 
+.card-btn:focus {
+  background: teal;
+  color: var(--clr-accent-400);
 }
 
