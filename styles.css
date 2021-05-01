@@ -41,7 +41,8 @@ body {
 }
 
 /* Main Card Animation */
-.card-container:hover{
+.card-container:hover,
+.card-container:focus-within {
   transform: scale(1.05);
 }
 
@@ -58,9 +59,14 @@ body {
 }
 
 /* card content animation */
-.card-container:hover .card-content {
+.card-container:hover .card-content,
+.card-container:focus-within .card-content {
   transform: translateY(0%);
   transition-delay: 0.5s;
+}
+
+.card-container:focus-within .card-content {
+  transition-duration: 0ms;
 }
 
 /* > *:not() means everything within except (something) */
@@ -70,9 +76,14 @@ body {
 }
 
 /* on card-content:hover, change the opacity back to 1 */
-.card-container:hover .card-content > *:not(.card-title) {
+.card-container:hover .card-content > *:not(.card-title),
+.card-container:focus-within .card-content > *:not(.card-title) {
   opacity: 1;
   transition-delay: 1s;
+}
+
+.card-container:focus-within .card-content > *:not(.card-title) {
+  transition-delay: 0.6s;
 }
 
 .card-title {
@@ -96,7 +107,8 @@ body {
 }
 
 /* Card Title Line Animation */
-.card-container:hover .card-title::after {
+.card-container:hover .card-title::after,
+.card-container:focus-within .card-title::after {
   transform: scaleX(1);
 }
 
@@ -113,9 +125,10 @@ body {
   padding: .5em 1.25em;
   font-weight: 700;
   border-radius: .25rem;
+  transition: all 0.3s;
 }
 
-.card-btn:hover, 
+.card-btn:hover,
 .card-btn:focus {
   background: teal;
   color: var(--clr-accent-400);
