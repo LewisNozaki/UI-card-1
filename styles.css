@@ -1,3 +1,10 @@
+:root {
+  --clr-neutral-900: hsl(207, 19%, 9%);
+  --clr-neutral-100: hsl(0, 0%, 100%);
+  --clr-accent-400: hsl(142, 90%, 61%);
+  --clr-bg-body: #13181c;
+}
+
 *, 
 *:before, 
 *:after {
@@ -13,6 +20,14 @@ body {
   padding: 0;
   margin: 0;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
+  background: var(--clr-bg-body);
+  display: grid;
+  place-items: center;
+  line-height: 1.6;
+}
+
+.card-container {
+  border: 1px solid white;
 }
 
